@@ -6,6 +6,9 @@ import java.util.Scanner;
 import tarea.ejercicio_1.Autor;
 import tarea.ejercicio_1.ExecEj1;
 import tarea.ejercicio_1.Libro;
+import tarea.ejercicio_2.Cliente;
+import tarea.ejercicio_2.ExecEj2;
+import tarea.ejercicio_2.Factura;
 
 public final class App {
 
@@ -16,7 +19,9 @@ public final class App {
 
         Autor autor = new Autor();
         Libro libro = new Libro();
-        // ArrayList<Autor> autores = new ArrayList<>();
+
+        Cliente cliente = new Cliente();
+        Factura factura = new Factura();
 
         while (repeat == 's') {
 
@@ -59,7 +64,21 @@ public final class App {
                     VisualMenu.ej2();
                     punto = scan.nextInt();
                     switch (punto) {
-
+                        case 1:
+                            ExecEj2.a();
+                            break;
+                        case 2:
+                            cliente = ExecEj2.b();
+                            break;
+                        case 3:
+                            factura = ExecEj2.c(cliente);
+                            break;
+                        case 4:
+                            ExecEj2.d(factura);
+                            break;
+                        case 5:
+                            ExecEj2.e();
+                            break;
                     }
                     break;
 
