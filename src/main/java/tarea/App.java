@@ -6,9 +6,12 @@ import java.util.Scanner;
 import tarea.ejercicio_1.Autor;
 import tarea.ejercicio_1.ExecEj1;
 import tarea.ejercicio_1.Libro;
-import tarea.ejercicio_2.Cliente;
+import tarea.ejercicio_2.Consumidor;
 import tarea.ejercicio_2.ExecEj2;
 import tarea.ejercicio_2.Factura;
+import tarea.ejercicio_3.Cliente;
+import tarea.ejercicio_3.Cuenta;
+import tarea.ejercicio_3.ExecEj3;
 
 public final class App {
 
@@ -20,8 +23,11 @@ public final class App {
         Autor autor = new Autor();
         Libro libro = new Libro();
 
-        Cliente cliente = new Cliente();
+        Consumidor consumidor = new Consumidor();
         Factura factura = new Factura();
+
+        Cliente cliente = new Cliente();
+        Cuenta cuenta = new Cuenta(0, null, 0);
 
         while (repeat == 's') {
 
@@ -68,10 +74,10 @@ public final class App {
                             ExecEj2.a();
                             break;
                         case 2:
-                            cliente = ExecEj2.b();
+                            consumidor = ExecEj2.b();
                             break;
                         case 3:
-                            factura = ExecEj2.c(cliente);
+                            factura = ExecEj2.c(consumidor);
                             break;
                         case 4:
                             ExecEj2.d(factura);
@@ -86,7 +92,21 @@ public final class App {
                     VisualMenu.ej3();
                     punto = scan.nextInt();
                     switch (punto) {
-
+                        case 1:
+                            cliente = ExecEj3.a();
+                            break;
+                        case 2:
+                            cuenta = ExecEj3.b(cliente);
+                            break;
+                        case 3:
+                            cuenta = ExecEj3.c(cuenta);
+                            break;
+                        case 4:
+                            ExecEj3.d(cuenta);
+                            break;
+                        case 5:
+                            ExecEj3.e();
+                            break;
                     }
                     break;
 

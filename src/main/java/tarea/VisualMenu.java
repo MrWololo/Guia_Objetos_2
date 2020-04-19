@@ -4,7 +4,7 @@ public class VisualMenu {
 
     public static void principal() {
         System.out
-                .println("\n\t1. Ejercicio 1\t\t2. Ejercicio 2");
+                .println("\n\t1. Ejercicio 1\t\t2. Ejercicio 2\n\t3. Ejercicio 3");
     }
 
     public static void ej1() {
@@ -16,6 +16,6 @@ public class VisualMenu {
     }
 
     public static void ej3() {
-        System.out.println("\n\t1. A)\t\t2. B)\n\t1. C)\t\t2. D)\n\t1. E)");
+        System.out.println("\n\t1. A)\t\t2. B)\n\t3. C)\t\t4. D)\n\t5. E)");
     }
 }

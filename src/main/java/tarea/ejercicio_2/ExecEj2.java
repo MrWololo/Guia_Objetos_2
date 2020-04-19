@@ -14,13 +14,13 @@ public class ExecEj2 {
         System.out.println("LocalDateTime.now: " + formatter.format(LocalDateTime.now()));
     }
 
-    public static Cliente b() {
-        Cliente cliente = new Cliente("John", "JohnDoe@gmail.com", 25);
+    public static Consumidor b() {
+        Consumidor cliente = new Consumidor("John", "JohnDoe@gmail.com", 25);
         System.out.println(cliente.toString());
         return cliente;
     }
 
-    public static Factura c(Cliente cliente) {
+    public static Factura c(Consumidor cliente) {
         ItemVenta jugo = new ItemVenta("jugo", "Baggio", 35);
         //ArrayList<ItemVenta> items = new ArrayList<>();
         //items.add(jugo);
@@ -28,7 +28,7 @@ public class ExecEj2 {
         Factura factura = new Factura(cliente, null);
         factura.agregarItem(jugo);
         System.out.println("Total: " + factura.getTotal());
-        System.out.println("Descontado " + factura.getCliente().getDescuento() + "%: ");
+        System.out.println("Descontado " + factura.getConsumidor().getDescuento() + "%: ");
         System.out.println(factura.getDescontado());
         return factura;
     }
@@ -39,7 +39,7 @@ public class ExecEj2 {
 
     public static void e() {
 
-        Cliente clienteTest = new Cliente("test", "test@test.com", 10);
+        Consumidor clienteTest = new Consumidor("test", "test@test.com", 10);
 
         ArrayList<ItemVenta> items = new ArrayList<>();
         items.add(new ItemVenta("producto", "descripcion", 200));

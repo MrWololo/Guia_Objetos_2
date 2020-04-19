@@ -9,17 +9,17 @@ public class Factura {
 
     private UUID id;
     private String fecha;
-    private Cliente cliente;
+    private Consumidor consumidor;
 
     private ArrayList<ItemVenta> items;
 
-    public Factura(Cliente cliente, ArrayList<ItemVenta> items) {
+    public Factura(Consumidor consumidor, ArrayList<ItemVenta> items) {
         this.id = UUID.randomUUID();
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
         this.fecha = formatter.format(LocalDateTime.now());
-        this.cliente = cliente;
+        this.consumidor = consumidor;
 
         this.items = items;
     }
@@ -36,7 +36,7 @@ public class Factura {
     }
 
     public double getDescontado() {
-        return getTotal() - ((getCliente().getDescuento() * getTotal()) / 100);
+        return getTotal() - ((getConsumidor().getDescuento() * getTotal()) / 100);
     }
 
     public UUID getId() {
@@ -47,8 +47,8 @@ public class Factura {
         return this.fecha;
     }
 
-    public Cliente getCliente() {
-        return this.cliente;
+    public Consumidor getConsumidor() {
+        return this.consumidor;
     }
 
     public ArrayList<ItemVenta> getItems() {
@@ -66,7 +66,7 @@ public class Factura {
     @Override
     public String toString() {
         return "[" + " id='" + getId() + "'" + ", fecha='" + getFecha() + "'" + ", monto='" + getTotal() + "'"
-                + ", montoDesc='" + "'" + getDescontado() + "'" + ", cliente='" + getCliente().toString() + "'" + ", items='" + getItems() + "'" + "]";
+                + ", montoDesc='" + "'" + getDescontado() + "'" + ", Consumidor='" + getConsumidor().toString() + "'" + ", items='" + getItems() + "'" + "]";
     }
 
     

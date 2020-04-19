@@ -2,21 +2,21 @@ package tarea.ejercicio_2;
 
 import java.util.UUID;
 
-public class Cliente {
+public class Consumidor {
 
     private UUID id;
     private String nombre;
     private String email;
     private int descuento;
 
-    public Cliente(String nombre, String email, int descuento) {
+    public Consumidor(String nombre, String email, int descuento) {
         this.id = UUID.randomUUID();
         this.nombre = nombre;
         this.email = email;
         this.descuento = descuento;
     }
 
-    public Cliente() {
+    public Consumidor() {
 	}
 
 	public UUID getId() {
@@ -37,7 +37,7 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "Cliente[" + " id='" + getId() + "'" + ", nombre='" + getNombre() + "'" + ", email='" + getEmail() + "'"
+        return "Consumidor[" + " id='" + getId() + "'" + ", nombre='" + getNombre() + "'" + ", email='" + getEmail() + "'"
                 + ", descuento='" + getDescuento() + "'" + "]";
     }
 
