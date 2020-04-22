@@ -4,10 +4,10 @@ import java.util.UUID;
 
 public class Cuenta {
 
-    UUID id;
-    double balance;
-    Cliente cliente;
-    double deuda = 0;
+    private UUID id;
+    private double balance;
+    private Cliente cliente;
+    private double deuda = 0;
 
     public Cuenta(double balance, Cliente cliente, double deuda) {
         try {

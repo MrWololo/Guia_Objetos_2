@@ -1,14 +1,11 @@
 package tarea.ejercicio_1;
 
-/**
- * Autor
- */
 public class Autor {
 
-    String nombre;
-    String apellido;
-    String email;
-    char genero;
+    private String nombre;
+    private String apellido;
+    private String email;
+    private char genero;
 
 
     public Autor() {

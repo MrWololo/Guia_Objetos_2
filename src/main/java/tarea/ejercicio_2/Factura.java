@@ -12,6 +12,9 @@ public class Factura {
     private Consumidor consumidor;
 
     private ArrayList<ItemVenta> items;
+    
+    public Factura() {
+    }
 
     public Factura(Consumidor consumidor, ArrayList<ItemVenta> items) {
         this.id = UUID.randomUUID();
@@ -24,8 +27,7 @@ public class Factura {
         this.items = items;
     }
 
-    public Factura() {
-    }
+    
 
     public double getTotal() {
         double total = 0;

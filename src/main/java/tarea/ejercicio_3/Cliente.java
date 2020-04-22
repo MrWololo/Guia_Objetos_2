@@ -4,9 +4,9 @@ import java.util.UUID;
 
 public class Cliente {
 
-    UUID id;
-    String nombre;
-    char genero;
+    private UUID id;
+    private String nombre;
+    private char genero;
 
     public Cliente() {
     }
@@ -34,5 +34,4 @@ public class Cliente {
         return "{" + " id='" + getId() + "'" + ", nombre='" + getNombre() + "'" + ", genero='" + getGenero() + "'"
                 + "}";
     }
-
 }

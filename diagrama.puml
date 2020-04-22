@@ -1,0 +1,207 @@
+@startuml uml
+skinparam WrapWidth 300
+package tarea {
+    class App {
+        scan : Scanner
+        repeat : char = 's'
+        autor : Autor
+        libro : Libro
+        consumidor : Consumidor
+        factura : Factura
+        cliente : Cliente
+        cuenta : Cuenta
+        ejercicio : int
+        punto : int
+        +main()
+    }
+    class VisualMenu {
+        +principal()
+        +ej1()
+        +ej2()
+        +ej3()
+    }
+
+    package ejercicio_1 {
+        class Autor {
+            -nombre : String
+            -apellido : String
+            -email : String
+            -genero : char
+            +<<constructor>> Autor()
+            +<<constructor>> Autor(nombre : String apellido : String email : String, genero : char)
+            +getNombre() : String
+            +getApellido() : String
+            +getEmail() : String
+            +getGenero() : char
+            +toString() : String
+        }
+        class ExecEj1 {
+            +autores : ArrayList
+            +a() : Autor
+            +b(autor : Autor)
+            +c(autor : Autor) : Libro
+            +d(libro : Libro)
+            +e(libro : Libro) : Libro
+            +f(libro : Libro)
+            +g(libro : Libro)
+        }
+        class Libro {
+            -titulo : String
+            -precio : double
+            -stock : int
+            -autores : ArrayList
+            buffer : StringBuffer
+            autor : Autor
+            +<<constructor>> Libro()
+            +<<constructor>> Libro(titulo : String, precio : double,  stock : int, autores : ArrayList)
+            +getTitulo() : String
+            +getPrecio() : String
+            +getStock() : int
+            +getAutores() : ArrayList
+            +setPrecio(precio : double)
+            +agregarStock(nStock : int)
+            +toString() : String
+            +toMensaje() : String
+        }
+    }
+
+    package ejercicio_2 {
+        class Consumidor {
+            -id : UUID
+            -nombre : String
+            -apellido : String
+            -descuento : int
+            +<<constructor>> Consumidor()
+            +<<consumidor>> Consumidor(id : UUID, nombre : String, apellido : String, descuento : int)
+            +getId() : UUID
+            +getNombre() : String
+            +getEmail() : String
+            +getDescuento() : int
+            +toString() : String
+        }
+        class ExecEj2 {
+            -formatter : DateTimeFormatter
+            cliente : Consumidor
+            jugo : ItemVenta
+            factura : Factura
+            clienteTest : Consumidor
+            items : ArrayList
+            +a()
+            +b() : Consumidor
+            +c(cliente : Consumidor) : Factura
+            +d(factura : Factura)
+            +e()
+        }
+
+        tarea.ejercicio_2.ExecEj2 ..> Consumidor : cliente
+        tarea.ejercicio_2.ExecEj2 ..> ItemVenta : jugo
+        tarea.ejercicio_2.ExecEj2 ..> Factura : factura
+        tarea.ejercicio_2.ExecEj2 ..> Consumidor : clienteTest
+        tarea.ejercicio_2.ExecEj2 ..> java.util.ArrayList : items
+        tarea.ejercicio_2.ExecEj2 ..> Factura : factura
+        class Factura {
+            -id : UUID
+            -fecha : String
+            -consumidor : Consumidor
+            -items : ArrayList
+            formatter : DateTimeFormatter
+            total : double
+            +<<constructor>> Factura()
+            +<<constructor>> Factura(consumidor : Consumidor, items : ArrayList)
+            +getTotal() : double
+            +getDescontado() : double
+            +getId() : UUID
+            +getFecha() : String
+            +getConsumidor() : Consumidor
+            +getItems() : ArrayList
+            +agregarItem(itemVenta : ItemVenta)
+            +agregarVariosItem(items : ArrayList)
+            +toString() : String
+        }
+        class ItemVenta {
+            -id : UUID
+            -nombre : String
+            -descripcion : String
+            -precio : double
+            +<<consumidor>> ItemVenta()
+            +<<consumidor>> ItemVenta(nombre : String, descripcion : String, precio : double)
+            +getId() : UUID
+            +getNombre() : String
+            +getDescripcion : String
+            +getPrecio : double
+            +toString() : String
+        }
+    }
+
+    package ejercicio_3 {
+        class Almacenamiento {
+            -mensajes : ArrayList
+            file : FileOutputStream
+            output : ObjectOutputStream
+            file : FileInputStream
+            input : ObjectInputStream
+            obj : Object
+            array : ArrayList
+            +set(mensaje : String)
+            +get() : ArrayList
+        }
+
+        tarea.ejercicio_3.Almacenamiento ..> java.util.ArrayList : mensajes
+        tarea.ejercicio_3.Almacenamiento ..> java.io.FileOutputStream : file
+        tarea.ejercicio_3.Almacenamiento ..> java.io.ObjectOutputStream : output
+        tarea.ejercicio_3.Almacenamiento ..> java.io.FileInputStream : file
+        tarea.ejercicio_3.Almacenamiento ..> java.io.ObjectInputStream : input
+        tarea.ejercicio_3.Almacenamiento ..> java.util.ArrayList : array
+        class Cliente {
+            -id : UUID
+            -nombre : String
+            -genero : char
+            +<<constructor>> Cliente()
+            +<<constructor>> Cliente(nombre : String, genero : char)
+            +getId() : UUID
+            +getNombre() : String
+            +getGenero() : char
+            +toString() : String
+        }
+        class Cuenta {
+            -id : UUID
+            -balance : double
+            -cliente : Cliente
+            -deuda : double = 0
+            +<<constructor>> Cuenta(balance: double, cliente : Cliente, deuda : double)
+            +depositar(monto : double)
+            +extraer(monto : double)
+            +getId() : String
+            +getBalance() : double
+            +getCliente() : Cliente
+            +getDeuda() : double
+            +toString() : string
+        }
+        class ExecEj3 {
+            cliente : Cliente
+            cuenta : Cuenta
+            deposito : double = 4000
+            extraccion : double = 2500
+            +a() : Cliente
+            +b(cliente : Cliente) : Cuenta
+            +c(cuenta : Cuenta) : Cuenta
+            +d(cuenta : Cuenta)
+            +e()
+        }
+
+        tarea.ejercicio_3.ExecEj3 ..> Cliente : cliente
+        tarea.ejercicio_3.ExecEj3 ..> Cuenta : cuenta
+    }
+}
+
+App *--> Scanner : scan
+App *--> Autor : autor
+App *--> Libro : libro
+App *--> Consumidor : consumidor
+App *--> Factura : factura
+App *--> Cliente : cliente
+App *--> Cuenta : cuenta
+ExecEj1 *--> ArrayList : autores
+Libro *--> ArrayList : autores
+Libro *--> StringBuffer : buffer
+@enduml

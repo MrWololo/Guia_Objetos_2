@@ -2,15 +2,12 @@ package tarea.ejercicio_1;
 
 import java.util.ArrayList;
 
-/**
- * Libro
- */
 public class Libro {
 
-    String titulo;
-    double precio;
-    int stock;
-    ArrayList<Autor> autores = new ArrayList<>();
+    private String titulo;
+    private double precio;
+    private int stock;
+    private ArrayList<Autor> autores = new ArrayList<>();
 
     public Libro() {
     }
@@ -60,9 +57,9 @@ public class Libro {
         buffer.append(" de ");
 
         for (Autor autor : autores) {
-            buffer.append(autor.nombre);
+            buffer.append(autor.getNombre());
             buffer.append(" ");
-            buffer.append(autor.apellido);
+            buffer.append(autor.getApellido());
             buffer.append("; ");
         }
 

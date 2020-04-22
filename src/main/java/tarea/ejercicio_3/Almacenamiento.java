@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class Almacenamiento {
 
-    static ArrayList<String> mensajes = new ArrayList<String>();
+    private static ArrayList<String> mensajes = new ArrayList<String>();
 
     public static void set(final String mensaje) {
         try {

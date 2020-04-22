@@ -7,7 +7,7 @@ import java.util.UUID;
 
 public class ExecEj2 {
 
-    static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+    private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
     public static void a() {
         System.out.println("UUID.randomUUID: " + UUID.randomUUID());
